@@ -17,12 +17,12 @@ $ [sudo] pip install django-update-sql
 from django_update_sql import update_sql
 
 qs = Table.objects.filter(pk=42)
-kwargs = dict(description='test', action='action')
+kwargs = dict(key='value', updated_at=datetime.now())
 update_sql(qs, **kwargs) 
 ```
 
 ```sql
-UPDATE `api_event` SET `description` = test, `action` = action WHERE pk=42;
+UPDATE "table" SET "key" = 'value',"updated_at" = '2020-01-23T00:49:39'::timestamp WHERE "id" = 42
 ```
 
 <p align="center">
